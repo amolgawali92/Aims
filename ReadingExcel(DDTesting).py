@@ -13,5 +13,5 @@ cols=sheet.max_column  #count no.of columns in a excel sheet   4
 
 for r in range(1,rows+1):
     for c in range(1,cols+1):
-        print(sheet.cell(r,c).value,end='              ')
+        print(sheet.cell(r,c).value,end='      ')
         print()
