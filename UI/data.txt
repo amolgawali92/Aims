@@ -1,0 +1,14 @@
+useEffect(()=>{
+if(localStorage.getItem("role")=="admin")
+{
+    setNavContent(<div></div>);
+}
+else if(localStorage.getItem("role")=="user")
+{
+    setNavContent(<div></div>);
+}
+else
+{
+    setNavContent(<div></div>);
+}
+});

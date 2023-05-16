@@ -1,0 +1,39 @@
+
+import { Navigate , useParams} from 'react-router-dom';
+import axios from 'axios';
+import { _apiurluser } from '../api_URLs';
+
+
+
+function Verifyuser(){
+   const params=useParams();
+
+   axios.get(_apiurluser+"fetch?email="+params.vemail).then((response)=>{
+      // setUserDetails(response.data);
+      var userDetails=response.data[0];
+      if(userDetails.__v==0)
+      {
+         let updateDetails={"condition_obj":{"email":params.vemail},"set_condition":{"status":1,"__v":1}}
+            axios.patch(_apiurluser+"update",updateDetails).then((response)=>{
+            console.log("user verified....");
+         }).catch((err)=>{
+                 console.log(err);
+              });
+      }
+      else
+      {
+        alert("mail verification lin expired....");
+      }
+    }).catch((err)=>{
+      console.log(err);
+   });
+
+   
+
+return(
+    <div>
+      <Navigate to='/Login' />
+   </div>
+);
+}
+export default Verifyuser;

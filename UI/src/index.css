@@ -1,0 +1,4 @@
+/* to remove defaul page space left,right,to,bottom */
+*{
+  margin: 0px;
+}
